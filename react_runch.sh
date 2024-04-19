@@ -48,6 +48,10 @@ fi
 if [[ $build_wasm =~ ^[Yy]$ ]]; then
     echo "Building wasm module..."
     source ./wasm_build.sh
+    if [ $? -ne 0 ]; then
+        echo "Build failed."
+        exit 1
+    fi
 fi
 
 # Change to the project directory
